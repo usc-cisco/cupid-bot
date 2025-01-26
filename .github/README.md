@@ -10,6 +10,13 @@
   <i>Proudly built with <a href="https://sapphirejs.dev/">Sapphire</a> + <a href="https://bun.sh/">Bun</a> + <a href="https://www.typescriptlang.org/">TypeScript</a></i>
 </p>
 
+<details align="center">
+  <summary>See Demo 🎀</summary>
+  
+<img alt="USC CISCO Scientia" src="./demo.gif" />
+
+</details>
+
 ## Usage
 
 ```bash
