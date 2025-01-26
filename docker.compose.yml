@@ -1,0 +1,10 @@
+services:
+  cupid-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cupid-bot
+    environment:
+      DISCORD_BOT_TOKEN: $DISCORD_BOT_TOKEN
+      TENOR_API_KEY: $TENOR_API_KEY
+    restart: unless-stopped
