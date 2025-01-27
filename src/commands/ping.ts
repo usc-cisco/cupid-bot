@@ -9,7 +9,6 @@ export class PingCommand extends Command {
       name: 'ping',
       aliases: ['pong'],
       description: 'Check the server latency!',
-      cooldownDelay: 10, // 10 seconds
     });
   }
 

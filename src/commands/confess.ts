@@ -8,7 +8,7 @@ export class ConfessCommand extends Command {
       name: 'confess',
       aliases: ['confession'],
       description: 'Send an anonymous confession to a user!',
-      cooldownDelay: 60, // 1 minute
+      cooldownDelay: 60_000, // 1 minute
     });
   }
 
