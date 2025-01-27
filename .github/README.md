@@ -42,6 +42,8 @@ nano .env # then paste your variables there
 
 2. `TENOR_API_KEY`: follow the guide to get a [Tenor API Key from the Google Cloud Console](https://developers.google.com/tenor/guides/quickstart#setup)
 
+3. `DEVELOPER_USER_ID`: the Discord User ID that is exempted from rate-limiting
+
 ## License
 
 MIT License
