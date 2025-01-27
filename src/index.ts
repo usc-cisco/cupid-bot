@@ -9,9 +9,18 @@ const client = new SapphireClient({
     GatewayIntentBits.GuildMessages,
   ],
   loadMessageCommandListeners: true,
+  presence: {
+    status: 'online',
+    activities: [
+      {
+        name: 'confessions?!',
+        type: 2, // LISTENING
+      },
+    ],
+  },
   defaultCooldown: {
     delay: 10_000, // 10 secs
-    limit: 5,
+    limit: 30,
     // these ids can bypass the rate limit
     filteredUsers: [env.DEVELOPER_USER_ID],
   },

@@ -8,7 +8,6 @@ export class ConfessCommand extends Command {
       name: 'confess',
       aliases: ['confession'],
       description: 'Send an anonymous confession to a user!',
-      cooldownDelay: 60_000, // 1 minute
     });
   }
 
@@ -53,7 +52,7 @@ export class ConfessCommand extends Command {
   ) {
     const user = interaction.options.getUser('user');
     const confessionMessage = interaction.options.getString('message');
-    const gifTheme = interaction.options.getString('gif');
+    const gifToSearch = interaction.options.getString('gif');
     const fromAlias = interaction.options.getString('from') ?? 'Anon';
 
     if (!user || !confessionMessage) {
@@ -63,11 +62,11 @@ export class ConfessCommand extends Command {
       });
     }
 
-    // Fetch a random gif if gif-theme is provided
+    // Fetch a random gif, if gifToSearch is set
     let gifUrl: string | null = null;
-    if (gifTheme) {
+    if (gifToSearch) {
       try {
-        const gifs = await GifService.searchGifs(gifTheme, 5);
+        const gifs = await GifService.searchGifs(gifToSearch, 5);
         if (gifs.length > 0) {
           const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
           gifUrl = randomGif;
@@ -93,7 +92,7 @@ export class ConfessCommand extends Command {
       Math.floor(Math.random() * confessionTitles.length)
     );
 
-    // Attempt to send the confession message and gif as a DM
+    // Attempt to send the confession message and/or gif as a DM
     try {
       const confessionMessageWithGif = `## ${RANDOM_CONFESSION_TITLE}\n“${confessionMessage}”\n*— ${fromAlias}*${
         gifUrl ? `\n\n-# ${gifUrl}` : ''
